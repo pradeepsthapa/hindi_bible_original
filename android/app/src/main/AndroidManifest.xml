@@ -1,6 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.ccbc.hindi_bible.hindi_bible">
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.QUERY_ALL_PACKAGES"/>
    <application
         android:label="Hindi Bible"
         android:icon="@mipmap/ic_launcher">

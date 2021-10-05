@@ -1,7 +1,9 @@
+import 'package:facebook_audience_network/facebook_audience_network.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:hindi_bible/presentation/widgets/banner_widget.dart';
 import 'package:wakelock/wakelock.dart';
 import 'logics/providers.dart';
 import 'presentation/screens/book_loaded_screen.dart';
@@ -9,6 +11,7 @@ import 'presentation/screens/book_loaded_screen.dart';
 void main() async{
   await GetStorage.init();
   await Wakelock.enable();
+  FacebookAudienceNetwork.init();
   runApp(ProviderScope(child: MyApp()));
 }
 
@@ -65,6 +68,7 @@ class _HomePageState extends State<HomePage> {
               error: (err,st)=>Center(child: Text(err.toString())));
         },
       ),
+      bottomNavigationBar: BannerWidget(),
     );
   }
 }

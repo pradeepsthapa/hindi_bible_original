@@ -18,5 +18,4 @@ final colorProvider = StateProvider<String>((ref)=>'0');
 
 final pageController = Provider<PageController>((ref)=>PageController(initialPage: int.parse(ref.read(chapterNumberProvider).state)-1));
 final scrollController = StateProvider<ItemScrollController>((ref)=>ItemScrollController());
-// final positionController = Provider.autoDispose<ItemPositionsListener>((ref)=>ItemPositionsListener.create());
 
