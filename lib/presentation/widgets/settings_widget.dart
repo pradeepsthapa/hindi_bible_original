@@ -1,80 +1,113 @@
+import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:hindi_bible/constants/constants.dart';
 import 'package:hindi_bible/logics/providers.dart';
-import 'slider_widget.dart';
+import 'package:hindi_bible/model/font_model.dart';
 
-class SettingsWidget extends StatelessWidget {
+import 'font_slider_widget.dart';
 
-  @override
-  Widget build(BuildContext context) {
-    final isDark = Theme.of(context).brightness == Brightness.dark;
-    return Padding(
-      padding: const EdgeInsets.only(top: 50),
-      child: Align(
-        alignment: Alignment.topCenter,
-        child: Material(
-          elevation: 5,
-          shadowColor: Colors.black54,
-          child: Padding(
-            padding: const EdgeInsets.only(bottom: 12),
-            child: Wrap(
-              children: [
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+class SettingWidget{
+  static void showSettingsDialog({required BuildContext context}){
+    showModal(
+        context: context,
+        configuration: FadeScaleTransitionConfiguration(
+            barrierColor: Colors.black.withOpacity(0.3),
+            barrierDismissible: true),
+        builder: (_) {
+          return Align(
+              alignment: Alignment.topCenter,
+              child: Card(
+                margin: const EdgeInsets.fromLTRB(12, 30, 12, 0),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
                   children: [
-                    MaterialBanner(
-                        backgroundColor: Theme.of(context).accentColor.withOpacity(0.1),
-                        content: Center(child: Text("Settings",style: TextStyle(fontWeight: FontWeight.w500,fontSize: 18, color: Theme.of(context).accentColor),)), actions: [Container()]),
-                    settingsHeader(context,"Font Size"),
-                    FontSliderWidget(),
-                    ExpansionTile(
-                      initiallyExpanded: true,
-                      leading: Icon(Icons.palette_rounded),
-                      title: Text("Background",style: TextStyle(),),
-                      children: [
-                        Consumer(
-                          builder: (context,watch, child) {
-                            return Container(
-                              height: 53,
-                              child: ListView(
-                                physics: BouncingScrollPhysics(),
-                                scrollDirection: Axis.horizontal,
-                                  children: Constants.backgroundColors.map((e) =>
-                                      InkWell(
-                                        borderRadius: BorderRadius.circular(5),
-                                        splashFactory: InkRipple.splashFactory,
-                                        onTap: (){
-                                          final color = e.value.toRadixString(16);
-                                          context.read(boxStorageProvider).saveBackground(color);
-                                        },
-                                        child: Container(
-                                          padding: EdgeInsets.all(1),
-                                          margin: EdgeInsets.symmetric(vertical: 5,horizontal: 3),
-                                          decoration:BoxDecoration(
-                                              border: watch(colorProvider).state == e.value.toRadixString(16) ?Border.all(width: 2,color: isDark?Colors.white:Colors.black):null,
-                                          ),
-                                          child: Container(width: 60,color: e,),),
-                                      )).toList()),
-                            );
-                          }
-                        )],
+                    ListTile(
+                      dense: true,
+                      title: Text("Settings",style: TextStyle(color: Theme.of(context).colorScheme.secondaryVariant,fontSize: 18),),
+                    ),
+                    const Divider(height: 0,thickness: 0.7,),
+                    Consumer(
+                      builder: (context, ref, child) {
+                        return SwitchListTile(
+                            dense: true,
+                            title: const Text("Dark Mode"),
+                            value: Theme.of(context).brightness==Brightness.dark,
+                            onChanged: (value){
+                              ref.read(boxStorageNotifier).changeDarkTheme(value);
+                            });
+                      },
+                    ),
+                    const Divider(height: 0,thickness: 0.7,),
+                    Consumer(
+                      builder: (context, ref, child) {
+                        return CheckboxListTile(
+                            dense: true,
+                            title: const Text("Always Show References"),
+                            subtitle: const Text("Toggle on or off reference verses"),
+                            value: ref.watch(showReferencesProvider),
+                            onChanged: (value){
+                              ref.watch(boxStorageNotifier).showHideReferences(value??false);
+                            });
+                      },
+                    ),
+                    const Divider(height: 0,thickness: 0.7,),
+                    Consumer(builder: (context, ref, child) {
+                      return ListTile(
+                        title: const Text("Primary Font"),
+                        trailing: const Icon(Icons.chevron_right),
+                        subtitle: Text(Constants.globalFonts[ref.watch(globalFontProvider.notifier).state].fontName??''),
+                        onTap: (){
+                          showGeneralDialog(
+                            context: context,
+                            barrierDismissible: true,
+                            barrierLabel: MaterialLocalizations.of(context).modalBarrierDismissLabel,
+                            pageBuilder: (context, anim1, anim2) {
+                              return AlertDialog(
+                                actions: [
+                                  TextButton(
+                                      onPressed: ()=>Navigator.pop(context),
+                                      child: const Text("Cancel")),
+                                ],
+                                contentPadding: EdgeInsets.zero,
+                                scrollable: true,
+                                title: Text("Select Font",style: TextStyle(color: Theme.of(context).colorScheme.secondary),),
+                                content: SingleChildScrollView(
+                                  child: Consumer(
+                                      builder: (context,ref, child) {
+                                        return Column(
+                                          crossAxisAlignment: CrossAxisAlignment.start,
+                                          children: Constants.globalFonts.map((e) => RadioListTile<GlobalFontModel>(
+                                            dense: true,
+                                            title: Text(e.fontName??''),
+                                            groupValue: Constants.globalFonts[ref.watch(globalFontProvider)],
+                                            value: e,
+                                            onChanged: (value){
+                                              final fontIndex = Constants.globalFonts.indexOf(value!);
+                                              ref.read(boxStorageNotifier).saveFontStyle(fontIndex);
+                                              Navigator.pop(context);
+                                            },
+                                          )).toList(),
+                                        );
+                                      }
+                                  ),
+                                ),
+                              );
+                            },);
+                        },
+                      );
+                    },),
+                    const Divider(height: 0,thickness: 0.7,),
+                    const FontSliderWidget(),
+                    Align(
+                      alignment: Alignment.bottomRight,
+                      child: TextButton(onPressed: (){
+                        Navigator.pop(context);
+                      }, child: Text("Close",style: TextStyle(color: Theme.of(context).colorScheme.secondary),)),
                     )
-
                   ],
                 ),
-              ],
-            ),
-          ),
-        ),
-      ),
-    );
+              ));
+        });
   }
-}
-
-Widget settingsHeader(BuildContext context,String text){
-  return Padding(
-    padding: const EdgeInsets.fromLTRB(24, 7, 0, 0),
-    child: Text(text,style: TextStyle(fontSize: 17,color: Theme.of(context).accentColor),),
-  );
 }

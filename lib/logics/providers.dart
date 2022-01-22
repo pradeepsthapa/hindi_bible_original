@@ -1,21 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:hindi_bible/logics/bible_repository.dart';
-import 'package:hindi_bible/model/bible_model.dart';
+import 'package:hindi_bible/logics/storage_provider.dart';
+import 'package:hindi_bible/model/bible_verses_model.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
-import 'storage_provider.dart';
+import 'bible_state_controller.dart';
+import 'highlights_state_controller.dart';
+import 'interstitial_ad_service.dart';
 
-final bookRepositoryProvider = FutureProvider<BibleModel>((ref)=>BibleRepository.getBible());
 
-final boxStorageProvider = Provider<StorageProvider>((ref)=>StorageProvider(ref.read)..initStorage());
+final bibleStateProvider = StateNotifierProvider.autoDispose<BibleStateController,BibleState>((ref) => BibleStateController(),);
+final boxStorageNotifier = ChangeNotifierProvider<BookStorage>((ref)=>BookStorage(ref.read)..initializeBook());
+final bookIndexProvider = StateProvider<int>((ref)=> 10);
+final chapterNumberProvider = StateProvider<int>((ref)=> 1);
+final currentVerseProvider = StateProvider<int>((ref)=> 0);
 
-final bookIndexProvider = StateProvider<int>((ref)=> 0);
-final chapterNumberProvider = StateProvider<String>((ref)=>'1');
+final fontSizeProvider = StateProvider<double>((ref)=>18.0);
+final globalFontProvider = StateProvider<int>((ref)=>0);
 
-final darkModeProvider = StateProvider<bool>((ref)=>false);
-final fontSizeProvider = StateProvider<double>((ref)=>17.0);
-final colorProvider = StateProvider<String>((ref)=>'0');
+final appColorProvider = StateProvider<int>((ref)=>15);
+final showReferencesProvider = StateProvider<bool>((ref)=>true);
 
-final pageController = Provider<PageController>((ref)=>PageController(initialPage: int.parse(ref.read(chapterNumberProvider).state)-1));
 final scrollController = StateProvider<ItemScrollController>((ref)=>ItemScrollController());
+final pageControllerProvider = Provider<PageController>((ref)=>PageController(initialPage: ref.read(chapterNumberProvider)-1));
 
+final bookmarksStateProvider = StateNotifierProvider<BookmarksState,List<BibleVersesModel>>((ref)=>BookmarksState()..getBookmarks());
+final interstitialAdProvider = Provider<InterstitialAdService>((ref)=>InterstitialAdService());

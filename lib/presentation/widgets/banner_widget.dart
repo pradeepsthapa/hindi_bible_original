@@ -2,6 +2,7 @@ import 'package:facebook_audience_network/ad/ad_banner.dart';
 import 'package:flutter/material.dart';
 
 class BannerWidget extends StatelessWidget {
+  const BannerWidget({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -11,7 +12,7 @@ class BannerWidget extends StatelessWidget {
         placementId: "347970317051061_347970603717699",
         bannerSize: BannerSize.STANDARD,
         listener: (result, value) {
-          print("Banner Ad: $result -->  $value");
+
         },
       ),
     );

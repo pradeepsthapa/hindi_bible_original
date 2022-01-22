@@ -1,24 +1,28 @@
-import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:hindi_bible/model/font_model.dart';
 
-class Constants {
+class Constants{
 
-  static const String BOOK_INDEX = 'bibleIndex';
-  static const String CHAPTER_INDEX = 'bibleChapter';
-  static const String DARK_MODE = 'darkMode';
-  static const String FONT_SIZE = 'fontSize';
-  static const String BACKGROUND_COLOR = 'background';
+  static const String bibleIndex = 'bibleIndex';
+  static const String bibleChapter = 'bibleChapter';
+  static const String darkMode = 'darkMode';
+  static const String backgroundColor = 'background';
+  static const String fontSize = 'fontSize';
+  static const String fontIndex = 'fontIndex';
+  static const String bookmarks = 'bookmarks';
+  static const String showReferences = 'showReferences';
 
-
-
-
-  static List<Color> backgroundColors = [
-    Color(0x00000000),
-    Color(0xffffccdd),
-    Color(0xffccccff),
-    Color(0xffdab3ff),
-    Color(0xffb3c6ff),
-    Color(0xffb3ffb3),
-    Color(0xffdcdcbc),
-    Color(0xffffcccc),
+  static List<GlobalFontModel> globalFonts = [
+    GlobalFontModel(textTheme: GoogleFonts.literataTextTheme(), fontFamily: GoogleFonts.literata().fontFamily!,fontName: "Literata"),
+    GlobalFontModel(textTheme: GoogleFonts.libreBaskervilleTextTheme(), fontFamily: GoogleFonts.libreBaskerville().fontFamily!,fontName: "Libre Baskerville"),
+    GlobalFontModel(textTheme: GoogleFonts.quicksandTextTheme(), fontFamily: GoogleFonts.quicksand().fontFamily!,fontName: "Quicksand"),
+    GlobalFontModel(textTheme: GoogleFonts.ibmPlexSansTextTheme(), fontFamily: GoogleFonts.ibmPlexSans().fontFamily!,fontName: "IBM Plex"),
+    GlobalFontModel(textTheme: GoogleFonts.archivoTextTheme(), fontFamily: GoogleFonts.archivo().fontFamily!,fontName: "Archivo"),
+    GlobalFontModel(textTheme: GoogleFonts.loraTextTheme(), fontFamily: GoogleFonts.lora().fontFamily!,fontName: "Lora"),
+    GlobalFontModel(textTheme: GoogleFonts.sourceSansProTextTheme(), fontFamily: GoogleFonts.sourceSansPro().fontFamily!,fontName: "Source Sans Pro"),
+    GlobalFontModel(textTheme: GoogleFonts.montserratTextTheme(), fontFamily: GoogleFonts.montserrat().fontFamily!,fontName: "Montserrat"),
+    GlobalFontModel(textTheme: GoogleFonts.workSansTextTheme(), fontFamily: GoogleFonts.workSans().fontFamily!,fontName: "Work Sans"),
+    GlobalFontModel(textTheme: GoogleFonts.slabo13pxTextTheme(), fontFamily: GoogleFonts.slabo13px().fontFamily!,fontName: "Slabo 13px"),
+    GlobalFontModel(textTheme: GoogleFonts.latoTextTheme(), fontFamily: GoogleFonts.lato().fontFamily!,fontName: "Lato"),
   ];
 }

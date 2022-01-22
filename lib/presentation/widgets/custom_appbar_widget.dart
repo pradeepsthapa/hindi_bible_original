@@ -1,82 +1,57 @@
-import 'package:animations/animations.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:hindi_bible/logics/providers.dart';
-import 'package:hindi_bible/model/bible_model.dart';
+import 'package:hindi_bible/model/bible_names_model.dart';
+import 'package:hindi_bible/presentation/screens/bible/favourites_screen.dart';
+import 'package:hindi_bible/presentation/screens/bible/verse_selection_screen.dart';
 import 'package:hindi_bible/presentation/widgets/settings_widget.dart';
-import 'package:hindi_bible/presentation/widgets/tabbar_widget.dart';
 
-class CustomAppBar extends StatelessWidget {
-  final List<Biblebook> books;
-  CustomAppBar(this.books);
+class CustomAppBar extends ConsumerWidget {
+  final List<BibleNamesModel> bibleNames;
+  const CustomAppBar({Key? key, required this.bibleNames}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    final isDark = Theme.of(context).brightness == Brightness.dark;
+  Widget build(BuildContext context, WidgetRef ref) {
+    final currentBook = bibleNames.firstWhere((element) => element.bookNumber==ref.watch(bookIndexProvider));
     return AppBar(
-      backgroundColor: isDark?null:Colors.blueGrey.shade900,
-      title: GestureDetector(
-        onTap: (){
-          showModal(
-              configuration: FadeScaleTransitionConfiguration(
-                transitionDuration: Duration(milliseconds: 400),
-                barrierColor: Colors.transparent,
-                barrierDismissible: true),
-              context: context,
-              builder: (BuildContext ctx){
-                return Align(
-                  alignment: Alignment.topCenter,
-                  child: TabControllerWidget(books),
-                );
-              });
-        },
-        child: Consumer(
-            builder: (context, watch, child) {
-              return Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 12,vertical: 5),
-                    decoration: BoxDecoration(
-                        color: Colors.white12,
-                        borderRadius: BorderRadius.circular(30),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 5,vertical: 3),
-                      child: Text(books[watch(bookIndexProvider).state].bname??"Genesis",style: TextStyle(fontWeight: FontWeight.w400,fontSize: 16)),
-                    ),
-                  ),
-                  SizedBox(width: 7,),
-                  Container(
-                      padding: const EdgeInsets.symmetric(horizontal: 7,vertical: 5),
-                      decoration: BoxDecoration(
-                        color: Colors.white12,
-                        borderRadius: BorderRadius.circular(30),
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 5,vertical: 3),
-                        child: Text("Chapter ${watch(chapterNumberProvider).state}",style: TextStyle(fontWeight: FontWeight.w400,fontSize: 16),),
-                      )),
-                ],
-              );
+      title: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          IconButton(onPressed: (){
+            if(currentBook.bookNumber!=10){
+              final prevBook = bibleNames.indexOf(currentBook)-1;
+              ref.read(boxStorageNotifier).saveChapterIndex(1);
+              ref.read(boxStorageNotifier).saveBookIndex(bibleNames[prevBook].bookNumber!);
             }
-        ),
+          }, icon: const Icon(Icons.chevron_left),padding: EdgeInsets.zero,),
+          GestureDetector(
+              onTap: (){
+                Navigator.push(context, MaterialPageRoute(builder: (_)=>VerseSelectionScreen(books: bibleNames)));
+              },
+              child: Text(currentBook.shortName!+'.  ${ref.watch(chapterNumberProvider)}:${ref.watch(currentVerseProvider)+1}')),
+          IconButton(onPressed: (){
+            if(currentBook.bookNumber!=730){
+              final nextBook = bibleNames.indexOf(currentBook)+1;
+              ref.read(boxStorageNotifier).saveChapterIndex(1);
+              ref.read(boxStorageNotifier).saveBookIndex(bibleNames[nextBook].bookNumber!);
+            }
+          },
+              icon: const Icon(Icons.chevron_right),padding: EdgeInsets.zero),
+        ],
       ),
       actions: [
-        Padding(
-          padding: const EdgeInsets.only(right: 10),
-          child: IconButton(onPressed: (){
-            showModal(
-                configuration: FadeScaleTransitionConfiguration(
-                  transitionDuration: Duration(milliseconds: 350),
-                  barrierColor: Colors.transparent,
-                  barrierDismissible: true,
-                ),
-                context: context,
-                builder: (_)=>SettingsWidget());
-          }, icon: Icon(CupertinoIcons.textformat_size)),
-        )
+        IconButton(
+            onPressed: (){
+              Navigator.push(context, MaterialPageRoute(builder: (_) {
+                return const BookmarkScreen();
+              }));
+            }, icon: const Icon(CupertinoIcons.bookmark,)),
+        IconButton(
+            padding: const EdgeInsets.only(right: 12),
+            onPressed: (){
+              SettingWidget.showSettingsDialog(context:context);
+            }, icon: const Icon(CupertinoIcons.settings_solid)),
       ],
     );
   }

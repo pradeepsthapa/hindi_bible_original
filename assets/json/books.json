@@ -1,0 +1,464 @@
+[
+    {
+        "book_color": "#ccccff",
+        "book_number": 10,
+        "long_name": "उत्‍पत्ति",
+        "short_name": "उत",
+        "sorting_order": 100
+    },
+    {
+        "book_color": "#ccccff",
+        "book_number": 20,
+        "long_name": "निर्गमन",
+        "short_name": "नि",
+        "sorting_order": 200
+    },
+    {
+        "book_color": "#ccccff",
+        "book_number": 30,
+        "long_name": "लेवीय व्‍यवस्‍था",
+        "short_name": "लेव",
+        "sorting_order": 300
+    },
+    {
+        "book_color": "#ccccff",
+        "book_number": 40,
+        "long_name": "जन-गणना ग्रंथ",
+        "short_name": "गण",
+        "sorting_order": 400
+    },
+    {
+        "book_color": "#ccccff",
+        "book_number": 50,
+        "long_name": "व्‍यवस्‍था-विवरण",
+        "short_name": "व्‍य",
+        "sorting_order": 500
+    },
+    {
+        "book_color": "#ffcc99",
+        "book_number": 60,
+        "long_name": "यहोशुअ",
+        "short_name": "यहो",
+        "sorting_order": 600
+    },
+    {
+        "book_color": "#ffcc99",
+        "book_number": 70,
+        "long_name": "शासक ग्रंथ",
+        "short_name": "शास",
+        "sorting_order": 700
+    },
+    {
+        "book_color": "#ffcc99",
+        "book_number": 80,
+        "long_name": "रूत",
+        "short_name": "रूत",
+        "sorting_order": 800
+    },
+    {
+        "book_color": "#ffcc99",
+        "book_number": 90,
+        "long_name": "शमूएल : पहला भाग",
+        "short_name": "1 शम",
+        "sorting_order": 900
+    },
+    {
+        "book_color": "#ffcc99",
+        "book_number": 100,
+        "long_name": "शमूएल : दूसरा भाग",
+        "short_name": "2 शम",
+        "sorting_order": 1000
+    },
+    {
+        "book_color": "#ffcc99",
+        "book_number": 110,
+        "long_name": "राजाओं का वृत्तांत : पहला भाग",
+        "short_name": "1 रा",
+        "sorting_order": 1100
+    },
+    {
+        "book_color": "#ffcc99",
+        "book_number": 120,
+        "long_name": "राजाओं का वृत्तांत : दूसरा भाग",
+        "short_name": "2 रा",
+        "sorting_order": 1200
+    },
+    {
+        "book_color": "#ffcc99",
+        "book_number": 130,
+        "long_name": "इतिहास : पहला भाग",
+        "short_name": "1 इत",
+        "sorting_order": 1300
+    },
+    {
+        "book_color": "#ffcc99",
+        "book_number": 140,
+        "long_name": "इतिहास : दूसरा भाग",
+        "short_name": "2 इत",
+        "sorting_order": 1400
+    },
+    {
+        "book_color": "#ffcc99",
+        "book_number": 150,
+        "long_name": "एज्रा",
+        "short_name": "एज्रा",
+        "sorting_order": 1500
+    },
+    {
+        "book_color": "#ffcc99",
+        "book_number": 160,
+        "long_name": "नहेम्‍याह",
+        "short_name": "नह",
+        "sorting_order": 1600
+    },
+    {
+        "book_color": "#ffcc99",
+        "book_number": 190,
+        "long_name": "एस्‍तर",
+        "short_name": "एस",
+        "sorting_order": 1700
+    },
+    {
+        "book_color": "#66ff99",
+        "book_number": 220,
+        "long_name": "अय्‍यूब",
+        "short_name": "अय्‍य",
+        "sorting_order": 1800
+    },
+    {
+        "book_color": "#66ff99",
+        "book_number": 230,
+        "long_name": "भजन संहिता",
+        "short_name": "भज",
+        "sorting_order": 1900
+    },
+    {
+        "book_color": "#66ff99",
+        "book_number": 240,
+        "long_name": "नीतिवचन",
+        "short_name": "नीति",
+        "sorting_order": 2000
+    },
+    {
+        "book_color": "#66ff99",
+        "book_number": 250,
+        "long_name": "सभा-उपदेशक",
+        "short_name": "सभा",
+        "sorting_order": 2100
+    },
+    {
+        "book_color": "#66ff99",
+        "book_number": 260,
+        "long_name": "श्रेष्‍ठ गीत (सुलेमान का श्रेष्‍ठ गीत)",
+        "short_name": "श्रेष्‍ठ",
+        "sorting_order": 2200
+    },
+    {
+        "book_color": "#ff9fb4",
+        "book_number": 290,
+        "long_name": "नबी यशायाह का ग्रंथ",
+        "short_name": "यश",
+        "sorting_order": 2300
+    },
+    {
+        "book_color": "#ff9fb4",
+        "book_number": 300,
+        "long_name": "नबी यिर्मयाह का ग्रंथ",
+        "short_name": "यिर",
+        "sorting_order": 2400
+    },
+    {
+        "book_color": "#ff9fb4",
+        "book_number": 310,
+        "long_name": "शोक-गीत",
+        "short_name": "शोक",
+        "sorting_order": 2500
+    },
+    {
+        "book_color": "#ff9fb4",
+        "book_number": 330,
+        "long_name": "नबी यहेजकेल का ग्रंथ",
+        "short_name": "यहेज",
+        "sorting_order": 2600
+    },
+    {
+        "book_color": "#ff9fb4",
+        "book_number": 340,
+        "long_name": "नबी दानिएल का ग्रंथ",
+        "short_name": "दान",
+        "sorting_order": 2700
+    },
+    {
+        "book_color": "#ffff99",
+        "book_number": 350,
+        "long_name": "नबी होशे",
+        "short_name": "हो",
+        "sorting_order": 2800
+    },
+    {
+        "book_color": "#ffff99",
+        "book_number": 360,
+        "long_name": "नबी योएल",
+        "short_name": "योए",
+        "sorting_order": 2900
+    },
+    {
+        "book_color": "#ffff99",
+        "book_number": 370,
+        "long_name": "नबी आमोस",
+        "short_name": "आमो",
+        "sorting_order": 3000
+    },
+    {
+        "book_color": "#ffff99",
+        "book_number": 380,
+        "long_name": "नबी ओबद्याह",
+        "short_name": "ओब",
+        "sorting_order": 3100
+    },
+    {
+        "book_color": "#ffff99",
+        "book_number": 390,
+        "long_name": "नबी योना",
+        "short_name": "योना",
+        "sorting_order": 3200
+    },
+    {
+        "book_color": "#ffff99",
+        "book_number": 400,
+        "long_name": "नबी मीका",
+        "short_name": "मी",
+        "sorting_order": 3300
+    },
+    {
+        "book_color": "#ffff99",
+        "book_number": 410,
+        "long_name": "नबी नहूम",
+        "short_name": "नहू",
+        "sorting_order": 3400
+    },
+    {
+        "book_color": "#ffff99",
+        "book_number": 420,
+        "long_name": "नबी हबक्‍कूक",
+        "short_name": "हब",
+        "sorting_order": 3500
+    },
+    {
+        "book_color": "#ffff99",
+        "book_number": 430,
+        "long_name": "नबी सफन्‍याह",
+        "short_name": "सप",
+        "sorting_order": 3600
+    },
+    {
+        "book_color": "#ffff99",
+        "book_number": 440,
+        "long_name": "नबी हग्‍गय",
+        "short_name": "हाग",
+        "sorting_order": 3700
+    },
+    {
+        "book_color": "#ffff99",
+        "book_number": 450,
+        "long_name": "नबी जकर्याह",
+        "short_name": "जक",
+        "sorting_order": 3800
+    },
+    {
+        "book_color": "#ffff99",
+        "book_number": 460,
+        "long_name": "नबी मलाकी",
+        "short_name": "मल",
+        "sorting_order": 3900
+    },
+    {
+        "book_color": "#ff6600",
+        "book_number": 470,
+        "long_name": "संत मत्ती के अनुसार शुभ समाचार",
+        "short_name": "मत",
+        "sorting_order": 4000
+    },
+    {
+        "book_color": "#ff6600",
+        "book_number": 480,
+        "long_name": "संत मारकुस [मरकुस] के अनुसार शुभ समाचार",
+        "short_name": "मक",
+        "sorting_order": 4100
+    },
+    {
+        "book_color": "#ff6600",
+        "book_number": 490,
+        "long_name": "सन्‍त लूकस [लूक] के अनुसार शुभ समाचार",
+        "short_name": "लू",
+        "sorting_order": 4200
+    },
+    {
+        "book_color": "#ff6600",
+        "book_number": 500,
+        "long_name": "संत योहन [यूहन्ना] के अनुसार शुभ समाचार",
+        "short_name": "यो",
+        "sorting_order": 4300
+    },
+    {
+        "book_color": "#00ffff",
+        "book_number": 510,
+        "long_name": "प्रेरितों के कार्य-कलाप",
+        "short_name": "प्रे",
+        "sorting_order": 4400
+    },
+    {
+        "book_color": "#ffff00",
+        "book_number": 520,
+        "long_name": "रोम नगर की कलीसिया के नाम संत पौलुस का पत्र",
+        "short_name": "रोम",
+        "sorting_order": 4500
+    },
+    {
+        "book_color": "#ffff00",
+        "book_number": 530,
+        "long_name": "कुरिन्‍थुस नगर की कलीसिया के नाम संत पौलुस का पहला पत्र",
+        "short_name": "1 कुर",
+        "sorting_order": 4600
+    },
+    {
+        "book_color": "#ffff00",
+        "book_number": 540,
+        "long_name": "कुरिन्‍थुस नगर की कलीसिया के नाम संत पौलुस का दूसरा पत्र",
+        "short_name": "2 कुर",
+        "sorting_order": 4700
+    },
+    {
+        "book_color": "#ffff00",
+        "book_number": 550,
+        "long_name": "गलातिया प्रदेश की कलीसियाओं के नाम संत पौलुस का पत्र",
+        "short_name": "गल",
+        "sorting_order": 4800
+    },
+    {
+        "book_color": "#ffff00",
+        "book_number": 560,
+        "long_name": "इफिसुस नगर की कलीसिया के नाम संत पौलुस का पत्र",
+        "short_name": "इफ",
+        "sorting_order": 4900
+    },
+    {
+        "book_color": "#ffff00",
+        "book_number": 570,
+        "long_name": "फिलिप्‍पी नगर की कलीसिया के नाम संत पौलुस का पत्र",
+        "short_name": "फिल",
+        "sorting_order": 5000
+    },
+    {
+        "book_color": "#ffff00",
+        "book_number": 580,
+        "long_name": "कुलुस्‍से नगर की कलीसिया के नाम संत पौलुस का पत्र",
+        "short_name": "कुल",
+        "sorting_order": 5100
+    },
+    {
+        "book_color": "#ffff00",
+        "book_number": 590,
+        "long_name": "थिस्‍सलुनीके नगर की कलीसिया के नाम संत पौलुस का पहला पत्र",
+        "short_name": "1 थिस",
+        "sorting_order": 5200
+    },
+    {
+        "book_color": "#ffff00",
+        "book_number": 600,
+        "long_name": "थिस्‍सलुनीके नगर की कलीसिया के नाम संत पौलुस का दूसरा पत्र",
+        "short_name": "2 थिस",
+        "sorting_order": 5300
+    },
+    {
+        "book_color": "#ffff00",
+        "book_number": 610,
+        "long_name": "तिमोथी के नाम संत पौलुस का पहला पत्र",
+        "short_name": "1 तिम",
+        "sorting_order": 5400
+    },
+    {
+        "book_color": "#ffff00",
+        "book_number": 620,
+        "long_name": "तिमोथी के नाम संत पौलुस का दूसरा पत्र",
+        "short_name": "2 तिम",
+        "sorting_order": 5500
+    },
+    {
+        "book_color": "#ffff00",
+        "book_number": 630,
+        "long_name": "तीतुस के नाम संत पौलुस का पत्र",
+        "short_name": "तीत",
+        "sorting_order": 5600
+    },
+    {
+        "book_color": "#ffff00",
+        "book_number": 640,
+        "long_name": "फिलेमोन के नाम संत पौलुस का पत्र",
+        "short_name": "फिले",
+        "sorting_order": 5700
+    },
+    {
+        "book_color": "#ffff00",
+        "book_number": 650,
+        "long_name": "इब्रानियों के नाम पत्र",
+        "short_name": "इब्र",
+        "sorting_order": 5800
+    },
+    {
+        "book_color": "#00ff00",
+        "book_number": 660,
+        "long_name": "संत याकूब का पत्र",
+        "short_name": "याक",
+        "sorting_order": 5900
+    },
+    {
+        "book_color": "#00ff00",
+        "book_number": 670,
+        "long_name": "संत पतरस का पहला पत्र",
+        "short_name": "1 पत",
+        "sorting_order": 6000
+    },
+    {
+        "book_color": "#00ff00",
+        "book_number": 680,
+        "long_name": "संत पतरस का दूसरा पत्र",
+        "short_name": "2 पत",
+        "sorting_order": 6100
+    },
+    {
+        "book_color": "#00ff00",
+        "book_number": 690,
+        "long_name": "संत योहन का पहला पत्र",
+        "short_name": "1 यो",
+        "sorting_order": 6200
+    },
+    {
+        "book_color": "#00ff00",
+        "book_number": 700,
+        "long_name": "संत योहन का दूसरा पत्र",
+        "short_name": "2 यो",
+        "sorting_order": 6300
+    },
+    {
+        "book_color": "#00ff00",
+        "book_number": 710,
+        "long_name": "संत योहन का तीसरा पत्र",
+        "short_name": "3 यो",
+        "sorting_order": 6400
+    },
+    {
+        "book_color": "#00ff00",
+        "book_number": 720,
+        "long_name": "संत यहूदा का पत्र",
+        "short_name": "यहू",
+        "sorting_order": 6500
+    },
+    {
+        "book_color": "#ff7c80",
+        "book_number": 730,
+        "long_name": "प्रकाशन ग्रन्‍थ",
+        "short_name": "प्रक",
+        "sorting_order": 6600
+    }
+]
